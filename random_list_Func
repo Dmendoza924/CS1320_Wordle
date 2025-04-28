@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// Use const int instead of #define
+const int WORD_COUNT = 10;
+const int WORD_LENGTH = 6;  // 5 letters w/ null terminator
+
+// Function to return a random word from the list
+const char* pick_word(char word_list[][WORD_LENGTH], int list_size) {
+    int index = rand() % list_size;
+    return word_list[index];
+}
+
+int main() {
+    srand(time(NULL));  // seed the random number generator
+    // Word list
+    char words[10][6] = {
+        "abide", "crane", "flint", "peach", "flame",
+        "lemon", "melon", "craft", "haste", "olive"
+    };
+
+    // Get random word word
+    const char* secret_word = pick_word(words, WORD_COUNT);
+
+    // For testing take out later
+    printf("Secret Word: %s\n", secret_word);
+
+   
+    return 0;
+}
